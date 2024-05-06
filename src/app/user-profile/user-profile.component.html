@@ -1,0 +1,23 @@
+<img [src]="user.photo" [alt]="user.name" />
+<p>Nom : {{ user.name }}</p>
+<p>Prénom : {{ user.firstName }}</p>
+@if (user.isAgeHidden === false) {
+  <p>Âge : {{ user.age }} an(s)</p>
+} @else {
+  <p></p>
+}
+<div class="border">
+  @if (!user.quote) {
+    <p>...</p>
+  } @else {
+    <p>{{ user.quote }}</p>
+  }
+</div>
+<input
+  placeholder="First, solve the problem. Then, write the code. – John Johnson"
+  x
+  type="text"
+  [(ngModel)]="user.quote"
+/>
+<br />
+<button (click)="setAgeHidden()">Afficher/Masquer mon âge</button>
