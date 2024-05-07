@@ -1,1 +1,86 @@
-<p>sign-up works!</p>
+<!-- email firstname lastname password -->
+<form #myForm="ngForm" (ngSubmit)="myForm.valid && onSubmit()">
+  <fieldset>
+    <label for="email">Email</label>
+    <input
+      id="email"
+      name="email"
+      [(ngModel)]="signupform.email"
+      #email="ngModel"
+      email
+      type="email"
+      required />
+  </fieldset>
+  <div *ngIf="myForm.submitted">
+    <span *ngIf="email.errors?.['required']">L'email est requis</span>
+    <span *ngIf="email.invalid && !email.errors?.['required']"
+      >L'email est invalide</span
+    >
+  </div>
+  <fieldset>
+    <label for="firstname">Firstname</label>
+    <input
+      id="firstname"
+      name="firstname"
+      type="text"
+      [(ngModel)]="signupform.firstname"
+      #firstname="ngModel"
+      required
+      minlength="3"
+      maxlength="15" />
+  </fieldset>
+
+  <div *ngIf="myForm.submitted">
+    <span *ngIf="firstname.errors?.['required']">Le prénom est requis</span>
+    <span *ngIf="firstname.errors?.['minlength']"
+      >Le prénom doit comporter au moins 3 caractères</span
+    >
+    <span *ngIf="firstname.errors?.['maxlength']"
+      >Le prénom ne doit pas dépasser 15 caractères.</span
+    >
+  </div>
+  <fieldset>
+    <label for="lastname">Nom</label>
+    <input
+      id="lastname"
+      name="lastname"
+      type="text"
+      [(ngModel)]="signupform.lastname"
+      #lastname="ngModel"
+      required
+      minlength="3"
+      maxlength="15" />
+  </fieldset>
+  <div *ngIf="myForm.submitted">
+    <span *ngIf="lastname.errors?.['required']"
+      >Le champ lastname est requis</span
+    >
+    <span *ngIf="lastname.errors?.['minlength']"
+      >Le nom doit comporter au moins 3 caractères</span
+    >
+    <span *ngIf="lastname.errors?.['maxlength']"
+      >Le nom ne doit pas dépasser 15 caractères.</span
+    >
+  </div>
+  <fieldset>
+    <label for="password">password</label>
+    <input
+      id="password"
+      name="password"
+      type="password"
+      [(ngModel)]="signupform.password"
+      #password="ngModel"
+      required
+      minlength="8" />
+  </fieldset>
+  <div *ngIf="myForm.submitted">
+    <span *ngIf="password.errors?.['required']"
+      >Le mot de passe est requis</span
+    >
+    <span *ngIf="password.errors?.['minlength']"
+      >Le mot de passe doit comporter au moins 8 caractères</span
+    >
+  </div>
+
+  <button type="submit">Valider</button>
+</form>

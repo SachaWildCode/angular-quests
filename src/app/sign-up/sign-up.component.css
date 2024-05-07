@@ -1,0 +1,25 @@
+form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  min-width: 30vw;
+}
+* {
+  box-sizing: border-box;
+}
+fieldset {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+button {
+  align-self: center;
+  margin: 1rem;
+  padding: 0.7rem;
+}
+form.ng-submitted .ng-invalid {
+  border-left: 2px solid red;
+}
+.ng-invalid {
+  border-left: 2px solid green;
+}
