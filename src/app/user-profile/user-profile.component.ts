@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import "./user-profile-interface";
+import './user-profile-interface';
 
 @Component({
   selector: 'app-user-profile',
@@ -9,10 +9,8 @@ import "./user-profile-interface";
   templateUrl: './user-profile.component.html',
   styleUrl: './user-profile.component.css',
 })
-
 export class UserProfileComponent {
-
-  user: User =  {
+  user: User = {
     isAgeHidden: false,
     name: 'Doe',
     firstName: 'John',
